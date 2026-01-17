@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Melaaa Sayaang 💖</title>
+  <style>
+    /* ===== ROMANTIC CUTE VARIABLES ===== */
+    :root {
+      --pink-pastel: #ffadd6;
+      --lavender: #d4b8ff;
+      --dreamy-blue: #a3e4ff;
+      --cream: #fff9f5;
+      --dark-purple: #2c1a4d;
+      --glow-pink: rgba(255, 173, 214, 0.4);
+      --glow-lavender: rgba(212, 184, 255, 0.3);
+      --glow-blue: rgba(163, 228, 255, 0.3);
+
+      --gradient-bg: linear-gradient(135deg, #1a1035 0%, #2c1a4d 100%);
+      --gradient-text: linear-gradient(90deg, var(--pink-pastel), var(--lavender), var(--dreamy-blue));
+      --card-bg: rgba(255, 249, 245, 0.15);
+      --border-radius: 22px;
+      --transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--gradient-bg);
+      color: var(--cream);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .animated-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -2;
+      background: var(--gradient-bg);
+      animation: gradientShift 30s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== FLOATING ICONS ===== */
+    .floating-icons {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .floating-icon {
+      position: absolute;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      animation: float 12s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(10px) rotate(-5deg); }
+      75% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .hero-btn {
+      background: linear-gradient(90deg, var(--pink-pastel), var(--lavender));
+      color: var(--dark-purple);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 25px var(--glow-pink);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero-btn:hover {
+      transform: scale(1.05) translateY(0) !important;
+      box-shadow: 0 12px 30px var(--glow-pink);
+    }
+
+    .hero-btn:active {
+      transform: scale(0.95) !important;
+    }
+
+    /* ===== WHY I LIKE YOU CARDS ===== */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      padding: 40px 0;
+    }
+
+    .reason-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: 28px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px) scale(1.02) !important;
+      box-shadow: 0 12px 30px var(--glow-lavender);
+      border-color: rgba(212, 184, 255, 0.3);
+    }
+
+    .reason-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .reason-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .reason-card p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+    }
+
+    /* ===== INTERACTIVE QUIZ ===== */
+    .quiz-section {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .quiz-question {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .quiz-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .quiz-btn {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 2px solid var(--lavender);
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .quiz-btn:hover {
+      background: var(--lavender);
+      color: var(--dark-purple);
+      transform: scale(1.05) translateY(0) !important;
+      border-color: var(--lavender);
+    }
+
+    .quiz-response {
+      margin-top: 24px;
+      font-size: 1.2rem;
+      min-height: 28px;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    /* ===== GALLERY SECTION ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 16px;
+      padding: 40px 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(25px);
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05) !important;
+      box-shadow: 
+        0 0 25px var(--glow-pink),
+        0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ===== LOVE LETTER ===== */
+    .letter-container {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      padding: 50px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: scale(0.95) translateY(30px);
+      transition: var(--transition);
+    }
+
+    .letter-container::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--gradient-text);
+      border-radius: calc(var(--border-radius) + 2px);
+      z-index: -1;
+      opacity: 0.15;
+      filter: blur(8px);
+    }
+
+    .letter {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+    }
+
+    .letter h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-style: italic;
+      font-size: 1.6rem;
+    }
+
+    .letter p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .letter-placeholder {
+      border-right: 2px solid transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 12s steps(200, end) 1s forwards;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding: 60px 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gradient-text);
+      transform: translateX(-50%);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: calc(50% - 40px);
+      opacity: 0;
+      transform: translateX(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      transform: translateX(-20px);
+    }
+
+    .timeline-item:nth-child(even) {
+      left: calc(50% + 40px);
+      text-align: left;
+      transform: translateX(20px);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gradient-text);
+      box-shadow: 0 0 15px currentColor;
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -50px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -50px;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      color: var(--pink-pastel);
+      margin-bottom: 8px;
+    }
+
+    /* ===== RANDOM LOVE BUTTON ===== */
+    .love-button-section {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .random-love-btn {
+      background: linear-gradient(90deg, var(--dreamy-blue), var(--lavender));
+      color: var(--dark-purple);
+      border: none;
+      border-radius: 50px;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px var(--glow-blue);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .random-love-btn:hover {
+      transform: scale(1.05) translateY(0) !important;
+      box-shadow: 0 15px 35px var(--glow-blue);
+    }
+
+    .random-love-btn:active {
+      transform: scale(0.95) !important;
+    }
+
+    .love-message {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      min-height: 32px;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    /* ===== CLOSING SECTION ===== */
+    .closing {
+      text-align: center;
+      padding: 80px 20px 120px;
+    }
+
+    .closing p {
+      font-size: 1.6rem;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .floating-heart {
+      font-size: 2rem;
+      color: var(--pink-pastel);
+      text-shadow: 0 0 25px var(--glow-pink);
+      opacity: 0;
+      animation: heartFloat 8s ease-in-out infinite;
+    }
+
+    @keyframes heartFloat {
+      0%, 100% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; transform: translateY(-100px); }
+    }
+
+    /* ===== ANIMATION CLASSES ===== */
+    .animate-fade-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .animate-scale-in {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+    }
+
+    .animate-timeline-left {
+      opacity: 1 !important;
+      transform: translateX(-20px) !important;
+    }
+
+    .animate-timeline-right {
+      opacity: 1 !important;
+      transform: translateX(20px) !important;
+    }
+
+    .animate-response {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    /* ===== WIGGLE ANIMATION FOR ICONS ===== */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    .wiggle {
+      animation: wiggle 0.8s ease-in-out;
+    }
+
+    /* ===== HEART POP ANIMATION ===== */
+    @keyframes heartPop {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .heart-pop {
+      animation: heartPop 0.6s ease-out;
+    }
+
+    /* ===== TYPING ANIMATION ===== */
+    @keyframes typing {
+      from { width: 0; border-right-color: var(--pink-pastel); }
+      to { width: 100%; border-right-color: transparent; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1.1rem; }
+      .letter-container { padding: 35px 20px; }
+      section { padding: 60px 20px; }
+      .timeline::before { left: 30px; }
+      .timeline-item {
+        width: calc(100% - 60px);
+        left: 60px !important;
+        text-align: left !important;
+        transform: translateX(0) !important;
+      }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        transform: translateX(0) !important;
+      }
+      .timeline-dot {
+        left: -30px !important;
+        right: auto !important;
+      }
+      .quiz-buttons { gap: 12px; }
+      .quiz-btn { padding: 10px 20px; font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 100px 15px 60px; }
+      .hero h1 { font-size: 1.8rem; }
+      .gallery { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 12px; }
+      .reasons-grid { grid-template-columns: 1fr; }
+      .closing p { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANIMATED BACKGROUND -->
+  <div class="animated-bg"></div>
+  
+  <!-- FLOATING ICONS -->
+  <div class="floating-icons" id="floatingIcons"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Halooo melaaa! 💕</h1>
+    <p>Melaa lagi ngapain? Repp kangen tau... Coba deh klik tombol di bawah! 🐻</p>
+    <button class="hero-btn" id="heroBtn">klik aku 🐻</button>
+  </section>
+
+  <!-- WHY I LIKE YOU -->
+  <section class="reasons-section">
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-icon">💗</div>
+        <h3>Melaa Lucu Banget</h3>
+        <p>Sikap melaa yang kaya anak kecil ituu lucu bangett, repp sukaa!</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">✨</div>
+        <h3>Melaa juga suka bantuu repp</h3>
+        <p>Melaa selalu ada pas repp butuh, kayak AI pribadi repp haha</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">🌸</div>
+        <h3>Baik Hatinya</h3>
+        <p>Kebaikan melaa tuh kayak bunga yang selalu mekar indah!</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">🎀</div>
+        <h3>Gaya melaa Unik</h3>
+        <p>Dari cara kamu berpakaian sampe gaya bicaramu, semuanya perfect!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE QUIZ -->
+  <section class="quiz-section">
+    <div class="quiz-question">Melaa tau ga kalo repp sayang banget sama melaa? 💖</div>
+    <div class="quiz-buttons">
+      <button class="quiz-btn" data-response="iya 😳">iya 😳</button>
+      <button class="quiz-btn" data-response="iya banget 💖">iya banget 💖</button>
+      <button class="quiz-btn" data-response="pasti tau dong! ✨">pasti tau dong! ✨</button>
+    </div>
+    <div class="quiz-response" id="quizResponse"></div>
+  </section>
+
+  <!-- MEMORY GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery">
+      <!-- Replace with your photos (max 10) -->
+      <img src="https://i.ibb.co.com/DD4tJ4Y9/IMG-20260116-WA0006.jpg" alt="Memory 3">
+      <img src="https://i.ibb.co.com/5hmtVRzW/IMG-20260116-WA0004.jpg" alt="Memory 4">
+      <img src="https://i.ibb.co.com/TMdywWpb/IMG-20260117-WA0094.jpg" alt="Memory 5">
+      <img src="https://i.ibb.co.com/R4TWLPbc/IMG-20260117-WA0095.jpg" alt="Memory 6">
+      <img src="https://i.ibb.co.com/FLfWJ7tz/IMG-20260117-WA0102.jpg" alt="Memory 7">
+      <img src="https://i.ibb.co.com/PGBfvjkt/IMG-20260117-WA0103.jpg" alt="Memory 8">
+      <img src="https://i.ibb.co.com/dHhvnjC/IMG-20260117-WA0104-1.jpg" alt="Memory 9">
+      <img src="https://i.ibb.co.com/jZfS6FxV/IMG-20260117-WA0098-1.jpg" alt="Memory 10">
+    </div>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <section class="letter-section">
+    <div class="letter-container">
+      <div class="letter">
+        <h2>Ini Surat Confess dari repp 💌</h2>
+        <p class="letter-placeholder">
+          Melaa, melaa tau kann repp suka sama melaa.. sebaliknya juga, mela suka sama repp:D<br><br>
+          
+          repp pengen bilang sesuatu yang mungkin udah kamu tau, tapi tetep pengen aku 
+          ucapin berulang kali: AKU SAYANG BANGET SAMA KAMU! 💗 Setiap hari ketemu kamu 
+          itu kayak mimpi yang jadi kenyataan. Kamu bikin hari-hariku jadi lebih cerah, 
+          lebih lucu, dan lebih berarti.<br><br>
+          
+          Aku suka banget cara kamu peduli sama orang lain, cara kamu ngomong lembut, 
+          bahkan cara kamu marah-marah kecil itu lucu banget! Kamu itu unik, spesial, 
+          dan sempurna buat aku. Mungkin udah saat nyaa repp ngomong inii, melaa mauu gaa jadi pacar repp?:D<br><br>
+          
+          Maaf repp beraninya lewat sini:( kalo secara langsung repp malu bangett hahaha<br><br>
+          
+          repp bakalan tunggu jawaban dari melaa, repp disini bener bener udah sayang banget sama melaa
+          kalo melaa mau jawab, kirim pesan nya ke wa yah💖
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Senyum melaa</div>
+          <p>Entah kenapa kalo melaa senyum, repp juga ikut senyum:)! ❤️</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Tingkah laku</div>
+          <p>Sikap mela yang kekanak kanakan ituu lucu banget! ✨</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">12 September</div>
+          <p>repp ga begitu inget dari tanggal berapaa repp suka sama melaa.. intinya sekarang sampai kapanpun repp tetep suka sama melaa  💗</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Sekarang</div>
+          <p>Sekarang udah saatnya rep nembak melaa, piuu hahaha 🌸</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANDOM LOVE BUTTON -->
+  <section class="love-button-section">
+    <button class="random-love-btn" id="randomLoveBtn">Klik kalo kamu senyum 💖</button>
+    <div class="love-message" id="loveMessage"></div>
+  </section>
+
+  <!-- CLOSING MOMENT -->
+  <section class="closing">
+    <p>Makasih udah jadi kamu yang paling spesial buat aku! 🐻</p>
+    <div class="floating-heart">❤️</div>
+  </section>
+
+  <script>
+    // ===== CREATE FLOATING ICONS =====
+    function createFloatingIcons() {
+      const container = document.getElementById('floatingIcons');
+      container.innerHTML = '';
+      
+      const icons = ['❤️', '💗', '💖', '✨', '🌸', '🎀', '🐻', '⭐', '💫', '💌'];
+      const iconCount = Math.min(25, Math.floor(window.innerWidth / 20));
+      
+      for (let i = 0; i < iconCount; i++) {
+        const icon = document.createElement('div');
+        icon.className = 'floating-icon';
+        icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+        
+        const size = Math.random() * 12 + 16;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 15;
+        const rotation = Math.random() * 360;
+        
+        icon.style.fontSize = `${size}px`;
+        icon.style.left = `${posX}%`;
+        icon.style.top = `${posY}%`;
+        icon.style.animationDelay = `${delay}s`;
+        icon.style.animationDuration = `${duration}s`;
+        icon.style.transform = `rotate(${rotation}deg)`;
+        icon.style.opacity = Math.random() * 0.5 + 0.3;
+        
+        container.appendChild(icon);
+      }
+    }
+    
+    // Initialize floating icons
+    createFloatingIcons();
+    window.addEventListener('resize', createFloatingIcons);
+    
+    // ===== SCROLL ANIMATION ENGINE =====
+    class ScrollAnimator {
+      constructor() {
+        this.elements = [];
+        this.init();
+      }
+      
+      init() {
+        // Hero elements
+        this.addElement('.hero h1', 0.3);
+        this.addElement('.hero p', 0.6);
+        this.addElement('.hero-btn', 0.9);
+        
+        // Reason cards
+        document.querySelectorAll('.reason-card').forEach((card, index) => {
+          this.addElement(card, index * 0.2 + 0.2);
+        });
+        
+        // Quiz elements
+        this.addElement('.quiz-question', 0.3);
+        document.querySelectorAll('.quiz-btn').forEach((btn, index) => {
+          this.addElement(btn, index * 0.15 + 0.6);
+        });
+        
+        // Gallery images
+        document.querySelectorAll('.gallery img').forEach((img, index) => {
+          this.addElement(img, index * 0.1 + 0.2);
+        });
+        
+        // Letter section
+        this.addElement('.letter-container', 0.4);
+        
+        // Timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+          this.addElement(item, index * 0.3 + 0.3, index % 2 === 0 ? 'animate-timeline-right' : 'animate-timeline-left');
+        });
+        
+        // Random love button
+        this.addElement('.random-love-btn', 0.5);
+        
+        // Closing elements
+        this.addElement('.closing p', 0.4);
+        this.addElement('.floating-heart', 1.2);
+        
+        this.setupObserver();
+        this.checkInitialVisibility();
+      }
+      
+      addElement(selector, delay, customClass = 'animate-fade-in') {
+        const element = typeof selector === 'string' ? document.querySelector(selector) : selector;
+        if (element) {
+          this.elements.push({ el: element, delay, customClass });
+        }
+      }
+      
+      setupObserver() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.animateElement(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        this.elements.forEach(item => {
+          this.observer.observe(item.el);
+        });
+      }
+      
+      animateElement(element) {
+        if (element.dataset.animated) return;
+        element.dataset.animated = 'true';
+        
+        const item = this.elements.find(i => i.el === element);
+        if (!item) return;
+        
+        setTimeout(() => {
+          element.classList.add(item.customClass);
+        }, item.delay * 1000);
+      }
+      
+      checkInitialVisibility() {
+        requestAnimationFrame(() => {
+          this.elements.forEach(item => {
+            const rect = item.el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+              this.animateElement(item.el);
+            }
+          });
+        });
+      }
+    }
+    
+    // ===== INTERACTIVE FEATURES =====
+    function setupInteractions() {
+      // Hero button interaction
+      const heroBtn = document.getElementById('heroBtn');
+      if (heroBtn) {
+        heroBtn.addEventListener('click', () => {
+          heroBtn.classList.add('wiggle');
+          createHeartPop(heroBtn.getBoundingClientRect());
+          setTimeout(() => heroBtn.classList.remove('wiggle'), 800);
+        });
+      }
+      
+      // Quiz buttons
+      const quizBtns = document.querySelectorAll('.quiz-btn');
+      const quizResponse = document.getElementById('quizResponse');
+      
+      quizBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const response = btn.dataset.response;
+          quizResponse.textContent = response;
+          quizResponse.classList.remove('animate-response');
+          void quizResponse.offsetWidth; // Trigger reflow
+          quizResponse.classList.add('animate-response');
+          createHeartPop(btn.getBoundingClientRect());
+        });
+      });
+      
+      // Random love button
+      const randomLoveBtn = document.getElementById('randomLoveBtn');
+      const loveMessage = document.getElementById('loveMessage');
+      const loveMessages = [
+        'repp sayang banget sama melaa 🐻',
+        'melaa lucu tau 💗',
+        'makasih yah udah suka sama repp:D ✨',
+        'repp sukaaaa banget! 💖',
+        'senyum melaa bikin repp salting! 🌸',
+        'repp pengen PatPat melaa! 🤗',
+        'repp suka sama tsunderee! ⭐',
+        'bububb imut kiyut ! 💫'
+      ];
+      
+      if (randomLoveBtn) {
+        randomLoveBtn.addEventListener('click', () => {
+          const randomMsg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+          loveMessage.textContent = randomMsg;
+          loveMessage.classList.remove('animate-response');
+          void loveMessage.offsetWidth;
+          loveMessage.classList.add('animate-response');
+          createHeartPop(randomLoveBtn.getBoundingClientRect());
+        });
+      }
+      
+      // Gallery image interactions
+      const galleryImages = document.querySelectorAll('.gallery img');
+      galleryImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+          createHeartPop(e.target.getBoundingClientRect());
+        });
+        
+        img.addEventListener('mouseenter', () => {
+          img.classList.add('wiggle');
+          setTimeout(() => img.classList.remove('wiggle'), 800);
+        });
+      });
+      
+      // Reason card interactions
+      const reasonCards = document.querySelectorAll('.reason-card');
+      reasonCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.classList.add('wiggle');
+          setTimeout(() => card.classList.remove('wiggle'), 800);
+        });
+      });
+    }
+    
+    // Create heart pop effect
+    function createHeartPop(rect) {
+      const heart = document.createElement('div');
+      heart.textContent = '❤️';
+      heart.style.position = 'fixed';
+      heart.style.left = `${rect.left + rect.width / 2}px`;
+      heart.style.top = `${rect.top + rect.height / 2}px`;
+      heart.style.fontSize = '24px';
+      heart.style.zIndex = '1000';
+      heart.style.pointerEvents = 'none';
+      heart.style.transform = 'translate(-50%, -50%)';
+      heart.classList.add('heart-pop');
+      
+      document.body.appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 600);
+    }
+    
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new ScrollAnimator();
+      setupInteractions();
+    });
+  </script>
+</body>
+</html>
